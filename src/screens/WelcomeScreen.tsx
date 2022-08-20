@@ -57,7 +57,10 @@ const WelcomeScreen: FunctionComponent<Props> = ({ navigation }) => {
                         Best payment method, connects your money to your friends
                         and family
                     </SmallText>
-                    <RegularButton onPress={() => navigation.navigate('Home')}>
+                    <RegularButton
+                        onPress={() => navigation.navigate('Home')}
+                        textStyles={{ color: colors.white }}
+                    >
                         Get Started
                     </RegularButton>
                 </BottomSection>

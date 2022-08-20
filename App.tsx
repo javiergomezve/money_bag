@@ -1,4 +1,5 @@
-import AppLoading from 'expo-app-loading';
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
 
 import RootStack from './src/navigators/RootStack';
@@ -10,7 +11,7 @@ export default function App() {
     });
 
     if (!fontsLoaded) {
-        return <AppLoading />;
+        return <ActivityIndicator />;
     }
 
     return <RootStack />;
