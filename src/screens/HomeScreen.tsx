@@ -1,13 +1,18 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { FunctionComponent } from 'react';
 import styled from 'styled-components/native';
 
 import logo1 from '../assets/cards/visa_white.png';
 import logo2 from '../assets/cards/mc.png';
+import portrait1 from './../assets/portraits/1.jpg';
+import portrait2 from './../assets/portraits/2.jpg';
+import portrait3 from './../assets/portraits/3.jpg';
 import { colors } from '../colors';
 import { Container } from '../components/shared';
 import CardSection from '../components/Cards/CardSection';
 import TransactionSection from '../components/Transactions/TransactionSection';
+import SendMoneySection from '../components/SendMoney/SendMoneySection';
 
 const HomeContainer = styled(Container)`
     background-color: ${colors.graylight};
@@ -78,6 +83,31 @@ const HomeScreen: FunctionComponent = () => {
         },
     ];
 
+    const sendMoneyData = [
+        {
+            id: 1,
+            amount: '2450.56',
+            name: 'Coby Andoh',
+            background: colors.tertiary,
+            img: portrait1,
+        },
+
+        {
+            id: 2,
+            amount: '4450.56',
+            name: 'Harleen Scot',
+            background: colors.primary,
+            img: portrait2,
+        },
+        {
+            id: 3,
+            amount: '6250.56',
+            name: 'James Corbyn',
+            background: colors.accent,
+            img: portrait3,
+        },
+    ];
+
     return (
         <HomeContainer>
             <StatusBar style="dark" />
@@ -85,6 +115,8 @@ const HomeScreen: FunctionComponent = () => {
             <CardSection data={cardsData} />
 
             <TransactionSection data={transactionData} />
+
+            <SendMoneySection data={sendMoneyData} />
         </HomeContainer>
     );
 };
