@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import styled from 'styled-components/native';
+import { StackScreenProps } from '@react-navigation/stack';
 
 import background from '../assets/bgs/background_v1.png';
 import { colors } from '../colors';
@@ -8,6 +9,7 @@ import { Container } from '../components/shared';
 import BigText from '../components/Texts/BigText';
 import SmallText from '../components/Texts/SmallText';
 import RegularButton from '../components/Buttons/RegularButton';
+import { RootStackParamList } from '../navigators/RootStack';
 
 const WelcomeContainer = styled(Container)`
     background-color: ${colors.secondary};
@@ -35,7 +37,9 @@ const BottomSection = styled.View`
     justify-content: flex-end;
 `;
 
-const WelcomeScreen: FunctionComponent = () => {
+type Props = StackScreenProps<RootStackParamList, 'Welcome'>;
+
+const WelcomeScreen: FunctionComponent<Props> = ({ navigation }) => {
     return (
         <Fragment>
             <StatusBar style="light" />
@@ -53,7 +57,7 @@ const WelcomeScreen: FunctionComponent = () => {
                         Best payment method, connects your money to your friends
                         and family
                     </SmallText>
-                    <RegularButton onPress={() => {}}>
+                    <RegularButton onPress={() => navigation.navigate('Home')}>
                         Get Started
                     </RegularButton>
                 </BottomSection>

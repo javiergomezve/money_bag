@@ -1,5 +1,4 @@
-import React from 'react';
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -25,7 +24,7 @@ const RootStack: FunctionComponent = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Balance"
+                initialRouteName="Welcome"
                 screenOptions={{
                     headerStyle: {
                         backgroundColor: colors.graylight,
@@ -61,6 +60,7 @@ const RootStack: FunctionComponent = () => {
                     name="Home"
                     component={HomeScreen}
                     options={{
+                        headerLeft: () => null,
                         headerTitle: props => (
                             <Greeting
                                 mainText="Hey javiergomezve!"

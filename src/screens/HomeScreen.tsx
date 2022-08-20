@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import { StackScreenProps } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
-import { FunctionComponent } from 'react';
 import styled from 'styled-components/native';
 
 import logo1 from '../assets/cards/visa_white.png';
@@ -9,6 +9,7 @@ import portrait1 from './../assets/portraits/1.jpg';
 import portrait2 from './../assets/portraits/2.jpg';
 import portrait3 from './../assets/portraits/3.jpg';
 import { colors } from '../colors';
+import { RootStackParamList } from '../navigators/RootStack';
 import { Container } from '../components/shared';
 import CardSection from '../components/Cards/CardSection';
 import TransactionSection from '../components/Transactions/TransactionSection';
@@ -20,7 +21,9 @@ const HomeContainer = styled(Container)`
     flex: 1;
 `;
 
-const HomeScreen: FunctionComponent = () => {
+export type Props = StackScreenProps<RootStackParamList, 'Home'>;
+
+const HomeScreen: FunctionComponent<Props> = ({}) => {
     const cardsData = [
         {
             id: 1,

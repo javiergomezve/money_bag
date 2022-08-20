@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
 import { colors } from '../../colors';

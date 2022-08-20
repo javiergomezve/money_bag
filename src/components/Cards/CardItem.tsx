@@ -1,9 +1,11 @@
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from 'styled-components/native';
+import { useNavigation } from '@react-navigation/native';
 
 import card_bg from '../../assets/bgs/background_transparent.png';
 import { colors } from '../../colors';
 import { CardProp } from './types';
+import { Props as HomeProps } from '../../screens/HomeScreen';
 import { ScreenWidth } from '../shared';
 import RegularText from '../Texts/RegularText';
 import { View } from 'react-native';
@@ -45,12 +47,14 @@ const Logo = styled.Image`
     flex: 1;
 `;
 
-const CardItem: FunctionComponent<CardProp> = ({
-    accountNo,
-    logo,
-    balance,
-}) => {
-    const handlePress = () => {};
+const CardItem: FunctionComponent<CardProp> = props => {
+    const navigation = useNavigation<HomeProps['navigation']>();
+
+    const { accountNo, logo, balance } = props;
+
+    const handlePress = () => {
+        navigation.navigate('Balance', { ...props });
+    };
 
     return (
         <CardBackground source={card_bg}>
